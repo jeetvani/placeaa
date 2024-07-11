@@ -1,0 +1,57 @@
+#video_library .slick-prev {
+  background: url("/src/assets/home/popularPlaces/prev.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  height: 60px !important;
+  width: 60px !important;
+  z-index: 10 !important;
+}
+
+#video_library .slick-next {
+  background: url("/src/assets/home/popularPlaces/next.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  height: 60px !important;
+  width: 60px !important;
+  z-index: 10 !important;
+}
+
+#video_library .slick-arrow:before {
+  content: none !important;
+}
+
+#video_library .slick-track {
+  display: flex !important;
+  gap: 40px;
+}
+
+#video_library .slick-list {
+  margin-left: 60px;
+  margin-right: 35px;
+}
+
+#video_library .slick-slide > div {
+  width: 95% !important;
+}
+
+@media (max-width: 767px) {
+  .slick-slide {
+    transition: opacity 0.3s ease;
+  }
+
+  .slick-list {
+    overflow: visible !important;
+  }
+
+  #video_library .slick-track {
+    display: flex !important;
+    gap: 0;
+  }
+
+  #video_library .slick-list {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

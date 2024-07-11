@@ -1,0 +1,134 @@
+.slick-slide > div > div {
+  display: flex !important;
+}
+
+#bank_offers .slick-prev {
+  background: url("/src/assets/home/bankOffers/prev-png.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  height: 45px !important;
+  width: 45px !important;
+  z-index: 10 !important;
+  transform: translate(35%, -50%) !important;
+}
+
+#bank_offers .slick-next {
+  background: url("/src/assets/home/bankOffers/next-png.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  height: 45px !important;
+  width: 45px !important;
+  z-index: 10 !important;
+  transform: translate(-25%, -50%) !important;
+}
+/* 
+@media (max-width: 1024px) {
+  #bank_offers .slick-next {
+    background: none !important;
+    display: none !important;
+  }
+  #bank_offers .slick-prev {
+    background: none !important;
+    display: none !important;
+  }
+  #bank_offers .slick-track {
+    gap: 30px !important;
+  }
+  #bank_offers .slick-list {
+    display: flex !important;
+    justify-content: center !important;
+  }
+} */
+
+#bank_offers .slick-arrow:before {
+  content: none !important;
+}
+
+#bank_offers .slick-track {
+  display: flex !important;
+  gap: 21px !important;
+}
+
+#popular_places .slick-prev {
+  background: url("/src/assets/home/popularPlaces/prev.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  height: 45px !important;
+  width: 45px !important;
+  z-index: 10 !important;
+}
+
+#popular_places .slick-next {
+  background: url("/src/assets/home/popularPlaces/next.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  height: 45px !important;
+  width: 45px !important;
+  z-index: 10 !important;
+}
+
+#popular_places .slick-arrow:before {
+  content: none !important;
+}
+
+#popular_places .slick-track {
+  display: flex !important;
+  gap: 25px !important;
+}
+
+#popular_places .slick-list {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+@media (max-width: 720px) {
+  #popular_places .slick-list {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+} 
+
+
+#popular_places .slick-slide > div {
+  width: 95% !important;
+}
+
+#next_holiday .slick-arrow {
+  display: none !important;
+}
+
+#next_holiday .slick-track {
+  display: flex !important;
+  gap: 30px !important;
+}
+
+#next_holiday .slick-track {
+  margin-bottom: 14.17px !important;
+}
+
+#next_holiday .slick-dots {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+#next_holiday .slick-dots li {
+  margin: 0 !important;
+}
+
+#next_holiday .slick-dots li.slick-active button:before {
+  opacity: 0.75 !important;
+  color: #ab0101 !important;
+  font-size: 10px !important;
+}
+
+#next_holiday .slick-dots li button:before {
+  opacity: 1 !important;
+}
+
+#next_holiday .slick-dots li button:hover {
+  opacity: 0.25 !important;
+}
