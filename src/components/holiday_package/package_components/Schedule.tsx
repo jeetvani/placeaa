@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   bus,
   car,
@@ -11,9 +11,30 @@ import { useMediaQuery } from "react-responsive";
 const Schedule = ({ data }: { data: Array<any> }) => {
   const [selectedDay, setSelectedDay] = useState(0);
   const isAboveMediumScreen = useMediaQuery({ minWidth: 768 });
+  const dayRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const day = Number(entry.target.getAttribute("data-day"));
+            setSelectedDay(day);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    dayRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const Title = ({ day, title }: { day: string; title: string }) => (
-    <div className="bg-[#191919] text-white pl-[20px] xl:pl-[30px] py-[9px] rounded-r-[15px]">
+    <div className="bg-[#191919] text-white pl-[20px] xl:pl-[30px] py-[9px] rounded-r-[15px] sticky top-0 md:top-[130px]">
       <p className="text-[16px] xl:text-[18px] font-[600] tracking-[1px]">
         Day-{day} {title}
       </p>
@@ -287,7 +308,12 @@ const Schedule = ({ data }: { data: Array<any> }) => {
           {data?.map((d, index) => (
             <div key={index}>
               <div
-                onClick={() => setSelectedDay(index)}
+                onClick={() => {
+                  setSelectedDay(index);
+                  dayRefs.current[index]?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
                 className={`${
                   selectedDay === index
                     ? "bg-black text-white py-[8px]"
@@ -318,7 +344,11 @@ const Schedule = ({ data }: { data: Array<any> }) => {
       )}
       <div className="space-y-1 border-l border-[#d9d9d9] flex-1 pb-6 pr-5 md:mr-0">
         {data?.map((d, index: number) => (
-          <div key={index}>
+          <div
+            key={index}
+            ref={(el) => (dayRefs.current[index] = el)}
+            data-day={index}
+          >
             {d?.type === "train" ? (
               <Train content={d} />
             ) : d?.type === "bus_car" ? (
