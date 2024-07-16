@@ -16,6 +16,7 @@ import {
   travelGuideRed,
   offersRed,
 } from "../../assets";
+import { throttle } from "lodash";
 
 const Navbar = ({
   setLoginPopup,
@@ -134,7 +135,7 @@ const Navbar = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight / 4) {
+      if (window.scrollY > 100) {
         setShowNavbar(true);
       } else {
         setShowNavbar(false);
@@ -142,30 +143,28 @@ const Navbar = ({
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     location.pathname === "/" && setActiveTab(null);
   }, [location]);
 
-  useEffect(() => {
-    if (navbarRef.current) {
-      const navbarHeight = navbarRef.current.clientHeight;
+  // useEffect(() => {
+  //   if (navbarRef.current) {
+  //     const navbarHeight = navbarRef.current.clientHeight;
 
-      navbarRef.current.style.marginTop =
-        !showNavbar && location.pathname === "/" ? `-${navbarHeight}px` : "0px";
-      navbarRef.current.style.display =
-        !showNavbar && location.pathname === "/" ? `none` : "flex";
-    }
-  }, [showNavbar, location]);
+  //     navbarRef.current.style.marginTop =
+  //       !showNavbar && location.pathname === "/" ? `-${navbarHeight}px` : "0px";
+  //     navbarRef.current.style.display =
+  //       !showNavbar && location.pathname === "/" ? `none` : "flex";
+  //   }
+  // }, [showNavbar, location]);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       setShowMore(false);
-    };
+    }, 100);
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -223,9 +222,7 @@ const Navbar = ({
     <div
       id="navbar"
       ref={navbarRef}
-      className={`${
-        !showNavbar && location.pathname === "/" ? "opacity-0" : "opacity-100"
-      } ${
+      className={` ${showNavbar ? "visible" : ""} ${
         (location.pathname === "/" ||
           location.pathname === "/travel-guide" ||
           location.pathname === "/offers" ||
@@ -234,7 +231,7 @@ const Navbar = ({
           location.pathname.startsWith("/blog") ||
           location.pathname.startsWith("/faq") ||
           location.pathname === "/biz-booking") &&
-        "sticky top-0 navbar"
+        "fixed top-0 navbar"
       } shadow-2xl flex items-center lg:p-[20px] 2xl:p-[23px] justify-between w-screen z-[1000] bg-white`}
     >
       <div className="flex items-center lg:gap-8 2xl:gap-12">

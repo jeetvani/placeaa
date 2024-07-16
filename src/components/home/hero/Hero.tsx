@@ -406,7 +406,7 @@ const Hero = ({
       {/* Main Content */}
       <div className="mt-20 lg:mt-[120px] 2xl:mt-[200px] px-3">
         {/* Tag */}
-        <div className="text-center lg:mt-[120px] 2xl:mt-[200px]">
+        <div className="flex flex-col items-center gap-3 text-center lg:mt-[120px] 2xl:mt-[200px]">
           <p className="text-white text-2xl font-medium lg:text-[22px] xl:text-[24px] 2xl:text-[28px] font-inter md:font-[600]">
             LET US PLAN YOUR PERFECT GATEWAY
           </p>

@@ -89,7 +89,12 @@ input[type="number"] {
 }
 
 .navbar {
-  transition: opacity 300ms ease, transform 300ms ease, visibility 0s 300ms;
+  transition: opacity 300ms ease, transform 300ms ease;
+  transform: translateY(-100%);
+}
+
+.navbar.visible {
+  transform: translateY(0);
 }
 
 #curve {
