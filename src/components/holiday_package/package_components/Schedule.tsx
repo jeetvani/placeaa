@@ -34,7 +34,7 @@ const Schedule = ({ data }: { data: Array<any> }) => {
   }, []);
 
   const Title = ({ day, title }: { day: string; title: string }) => (
-    <div className="bg-[#191919] text-white pl-[20px] xl:pl-[30px] py-[9px] rounded-r-[15px] sticky top-0 md:top-[130px]">
+    <div className="bg-[#191919] text-white pl-[20px] xl:pl-[30px] py-[9px] rounded-r-[15px] sticky z-10 top-0 md:top-[130px]">
       <p className="text-[16px] xl:text-[18px] font-[600] tracking-[1px]">
         Day-{day} {title}
       </p>
