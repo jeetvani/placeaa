@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import Footer from "../components/home/footer/Footer";
 import {
   contactUs,
@@ -16,6 +16,8 @@ import { useMediaQuery } from "react-responsive";
 
 const Help = () => {
   const navigate = useNavigate();
+  const faqsRef: RefObject<HTMLDivElement> = useRef(null);
+  const getInTouchRef: RefObject<HTMLDivElement> = useRef(null);
   const fileRef = useRef<any>(null);
   const isAboveMediumScreen = useMediaQuery({ minWidth: 768 });
   const [userData, setUserData] = useState<{
@@ -98,11 +100,30 @@ const Help = () => {
     setData((prev: any) => ({ ...prev, file: e }));
   };
 
+  const scrollToRef = (ref: RefObject<HTMLElement>, offset: number = 0) => {
+    if (ref.current) {
+      const yCoordinate =
+        ref.current.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: yCoordinate - offset,
+        behavior: "smooth",
+      });
+    }
+  };
+
   const cardData = [
-    { img: getintouch, title: "Get in touch" },
-    { img: contactUs, title: "Contact Us" },
-    { img: faq, title: "Frequently asked questions" },
-    { img: tnc, title: "Terms & conditions" },
+    {
+      img: getintouch,
+      title: "Get in touch",
+      action: () => scrollToRef(getInTouchRef, 100),
+    },
+    { img: contactUs, title: "Contact Us", route: "/contact-us" },
+    {
+      img: faq,
+      title: "Frequently asked questions",
+      action: () => scrollToRef(faqsRef, 100),
+    },
+    { img: tnc, title: "Terms & conditions", route: "/terms-and-conditions" },
   ];
 
   return (
@@ -188,25 +209,26 @@ const Help = () => {
         >
           {cardData?.map((cd, index) => (
             <div
+              key={index}
               className={`flex flex-col items-center gap-2 md:gap-[15px] 
-              ${
-                index < 2
-                  ? "md:border-b md:border-[#B9B9B9] md:pb-[26px]"
-                  : "md:pt-[26px]"
-              }
-              ${
-                index === 0
-                  ? "md:border-r md:border-[#B9B9B9] md:pr-[26px]"
-                  : ""
-              }
-              ${
-                index === 2
-                  ? "md:border-r md:border-[#B9B9B9] md:pr-[26px]"
-                  : ""
-              }
-              ${index === 1 ? "md:pb-[26px]" : ""}
-              ${index === 3 ? "md:pb-[26px]" : ""}
-            `}
+    ${
+      index < 2
+        ? "md:border-b md:border-[#B9B9B9] md:pb-[26px]"
+        : "md:pt-[26px]"
+    }
+    ${index === 0 ? "md:border-r md:border-[#B9B9B9] md:pr-[26px]" : ""}
+    ${index === 2 ? "md:border-r md:border-[#B9B9B9] md:pr-[26px]" : ""}
+    ${index === 1 ? "md:pb-[26px]" : ""}
+    ${index === 3 ? "md:pb-[26px]" : ""}
+    cursor-pointer
+  `}
+              onClick={() => {
+                if (cd.action) {
+                  cd.action();
+                } else if (cd.route) {
+                  navigate(cd.route);
+                }
+              }}
             >
               <img
                 src={cd?.img}
@@ -221,7 +243,11 @@ const Help = () => {
         </div>
       </div>
 
-      <div className="mt-[50px] xl:mt-[77px] px-5 md:px-0 md:mx-[150px] xl:mx-[200px]">
+      <div
+        id="faqs"
+        className="mt-[50px] xl:mt-[77px] px-5 md:px-0 md:mx-[150px] xl:mx-[200px]"
+        ref={faqsRef}
+      >
         <p className="text-[22px] xl:text-[25px] font-[600] mb-[25px] xl:mb-[30px]">
           FAQ&apos;s
         </p>
@@ -256,7 +282,11 @@ const Help = () => {
         </div>
       </div>
 
-      <div className="md:mx-[120px] px-5 xl:mx-[200px] xl:mt-[75px] my-[50px] xl:mb-[78px]">
+      <div
+        id="get-in-touch"
+        ref={getInTouchRef}
+        className="md:mx-[120px] px-5 xl:mx-[200px] xl:mt-[75px] my-[50px] xl:mb-[78px]"
+      >
         <div className="flex justify-center">
           <div
             className={`w-fit md:rounded-t-full py-3 md:py-[7px] xl:py-[12px] md:px-[120px] xl:px-[200px] ${

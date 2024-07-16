@@ -43,7 +43,7 @@ const BookingCard = ({
   return (
     <div className="md:border min-w-[270px] 2xl:min-w-[320px] h-fit md:border-[#D9D9D9] pb-[15px] px-5 md:px-[15px] md:shadow-[0px_0px_5px_0px_rgba(0,0,0,0.25)]">
       <div>
-        <div className="flex md:sticky top-0 justify-between items-center">
+        <div className="flex  md:sticky top-0 justify-between items-center">
           <p className="font-inter mt-5 text-[15px] font-[500] tracking-[0.75px] text-[#B9B9B9] line-through">
             ₹{prices?.original}
           </p>

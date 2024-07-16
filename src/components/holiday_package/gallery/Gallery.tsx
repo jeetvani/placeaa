@@ -4,12 +4,12 @@ const Gallery = ({ images }: { images: Array<any> }) => {
   return (
     <div className="flex md:flex-row flex-col lg:gap-[10px] 2xl:gap-[12px] px-5 md:px-0 gap-3">
       <img
-        className="lg:w-[355px] xl:w-[460px] rounded-[5px] 2xl:w-[600px]"
+        className="lg:w-[355px] md:h-auto h-28 object-cover xl:w-[460px] rounded-[5px] 2xl:w-[600px]"
         src={images?.length > 0 ? images[0] : ""}
         alt=""
       />
       <img
-        className="rounded-[5px] lg:w-[150px] xl:w-[195px] 2xl:w-[255px]"
+        className="rounded-[5px] md:h-auto h-28 w-full object-cover lg:w-[150px] xl:w-[195px] 2xl:w-[255px]"
         src={images?.length > 0 ? images[1] : ""}
         alt=""
       />

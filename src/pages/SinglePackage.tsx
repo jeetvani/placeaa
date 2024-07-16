@@ -245,7 +245,7 @@ const SinglePackage = () => {
 
         <div className="mt-[20px] lg:px-[12px] xl:px-[20px] lg:justify-between 2xl:justify-evenly flex flex-col-reverse md:flex-row-reverse gap-5">
           {isAboveMediumScreen && (
-            <div className="bg-white sticky top-7 h-fit z-[2]">
+            <div className="bg-white  z-[999999] sticky top-7 h-fit">
               <BookingCard
                 prices={pageData?.prices}
                 dates={{ from: "1/Mar", to: "7/Mar" }}

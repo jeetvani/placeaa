@@ -1,35 +1,52 @@
 import { FaInstagram, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 import { footerlogo } from "../../../assets";
+import { useNavigate } from "react-router-dom";
+
+interface ContentItem {
+  title: string;
+  route: string;
+}
+
+interface ServiceSet {
+  title: string;
+  content: ContentItem[];
+}
 
 const Footer = () => {
-  const servicesSet = [
+  const navigate = useNavigate();
+
+  const servicesSet: ServiceSet[] = [
     {
       title: "Services",
       content: [
-        { title: "AI Travel Planning" },
-        { title: "Travel Guide" },
-        { title: "BizConnect" },
-        { title: "BizBooking" },
+        { title: "AI Travel Planning", route: "/aiplanner" },
+        { title: "Travel Guide", route: "/travel-guide" },
+        { title: "BizConnect", route: "/biz-connect" },
+        { title: "BizBooking", route: "/biz-booking" },
       ],
     },
     {
       title: "Booking",
       content: [
-        { title: "Flight Booking" },
-        { title: "Bus Booking" },
-        { title: "Hotel Booking" },
-        { title: "Holiday Package" },
+        { title: "Flight Booking", route: "/" },
+        { title: "Bus Booking", route: "/" },
+        { title: "Hotel Booking", route: "/" },
+        { title: "Holiday Package", route: "/holidays" },
       ],
     },
     {
       title: "Support",
       content: [
-        { title: "Help Center" },
-        { title: "Contact Us" },
-        { title: "FAQs" },
+        { title: "Help Center", route: "/help" },
+        { title: "Contact Us", route: "/contact" },
+        { title: "FAQs", route: "/help" },
       ],
     },
   ];
+
+  const handleNavigation = (route: string): void => {
+    navigate(route);
+  };
 
   return (
     <div className="lg:mt-[22px] mt-[40px]">
@@ -38,16 +55,17 @@ const Footer = () => {
           <img src={footerlogo} className="h-full w-full" alt="footerlogo" />
         </div>
         <div className="flex justify-between lg:gap-[20px] xl:gap-[26px] gap-8">
-          {servicesSet?.map((ss: any) => (
+          {servicesSet?.map((ss) => (
             <div key={ss?.title}>
               <p className="lg:text-[18px] xl:text-[20px] 2xl:text-[24px] font-[600] text-black">
                 {ss?.title}
               </p>
               <div className="lg:mt-[15px] flex flex-col lg:gap-[6px] xl:gap-[9px] text-[#5e5e5e] text-sm">
-                {ss?.content?.map((ssc: any, index: number) => (
+                {ss?.content?.map((ssc, index) => (
                   <p
-                    className="font-[400] lg:text-[13px] xl:text-[15px] 2xl:text-[19px]"
+                    className="font-[400] lg:text-[13px] xl:text-[15px] 2xl:text-[19px] cursor-pointer hover:text-black transition-colors"
                     key={index}
+                    onClick={() => handleNavigation(ssc.route)}
                   >
                     {ssc?.title}
                   </p>
@@ -80,10 +98,30 @@ const Footer = () => {
           className="flex items-center justify-between lg:py-[16px] xl:py-[20px] py-5 px-5"
         >
           <div className="lg:gap-[20px] gap-3 flex md:flex-row flex-col md:items-center xl:gap-[25px] text-[#d9d9d9] font-[400] lg:text-[12px] xl:text-[14px] 2xl:text-[16px]">
-            <li>About Us</li>
-            <li>Contact Us</li>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
+            <li
+              className="cursor-pointer hover:text-white transition-colors"
+              onClick={() => handleNavigation("/about")}
+            >
+              About Us
+            </li>
+            <li
+              className="cursor-pointer hover:text-white transition-colors"
+              onClick={() => handleNavigation("/contact")}
+            >
+              Contact Us
+            </li>
+            <li
+              className="cursor-pointer hover:text-white transition-colors"
+              onClick={() => handleNavigation("/privacy-policy")}
+            >
+              Privacy Policy
+            </li>
+            <li
+              className="cursor-pointer hover:text-white transition-colors"
+              onClick={() => handleNavigation("/terms-conditions")}
+            >
+              Terms & Conditions
+            </li>
           </div>
 
           <div className="flex md:flex-row flex-col gap-5 items-center lg:gap-[20px] xl:gap-[23px]">

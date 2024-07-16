@@ -18,6 +18,7 @@ import YourBookings from "./pages/YourBookings";
 import SingleBookingTicket from "./pages/SingleBookingTicket";
 import SingleFAQ from "./pages/SingleFAQ";
 import { useMediaQuery } from "react-responsive";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 const App = () => {
   const [loginPopup, setLoginPopup] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
   return (
     <div>
       <Router>
+        <ScrollToTop />
         {loginPopup && (
           <LoginSignup
             setLoginPopup={setLoginPopup}
