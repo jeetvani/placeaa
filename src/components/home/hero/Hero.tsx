@@ -404,13 +404,13 @@ const Hero = ({
       {/* {isMobileMenuOpen && <MobileMenu />} */}
 
       {/* Main Content */}
-      <div className="mt-20 lg:mt-[120px] 2xl:mt-[200px] px-3">
+      <div className="mt-10 lg:mt-[120px] 2xl:mt-[200px] px-3">
         {/* Tag */}
         <div className="flex flex-col items-center gap-3 text-center lg:mt-[120px] 2xl:mt-[200px]">
-          <p className="text-white text-2xl font-medium lg:text-[22px] xl:text-[24px] 2xl:text-[28px] font-inter md:font-[600]">
+          <p className="text-white text-xl font-medium lg:text-[22px] xl:text-[24px] 2xl:text-[28px] font-inter md:font-[600]">
             LET US PLAN YOUR PERFECT GATEWAY
           </p>
-          <p className="text-[rgba(255,255,255,0.62)] font-lato lg:text-[18px] lg:-mt-1 2xl:text-[20px] font-[400] 2xl:font-[500] text-sm">
+          <p className="hidden md:block text-[rgba(255,255,255,0.62)] font-lato lg:text-[18px] lg:-mt-1 2xl:text-[20px] font-[400] 2xl:font-[500] text-sm">
             Discover new destinations and plan your dream vacation with our
             user-friendly travel website.
           </p>
@@ -419,12 +419,12 @@ const Hero = ({
         {/* Booking Toggle and Component */}
         <div className="lg:hidden">
           {/* Mobile Booking Toggle */}
-          <div className="bg-white flex justify-around  rounded-full my-6">
+          <div className="flex gap-3 py-5">
             {bookingContents.map((bc) => (
               <div
                 key={bc.title}
                 onClick={() => setActiveBooking(bc.title)}
-                className={`flex cursor-pointer items-center gap-1 px-2 py-5 rounded-full ${
+                className={`w-full flex cursor-pointer items-center gap-1 px-2 py-4 justify-center bg-white rounded-xl ${
                   activeBooking === bc.title ? "bg-red-100" : ""
                 }`}
               >
@@ -434,7 +434,7 @@ const Hero = ({
                   alt={bc.title}
                 />
                 <p
-                  className={`font-[500] text-sm ${
+                  className={`font-[500] text-xs ${
                     activeBooking === bc.title ? "text-[#AB0101]" : "text-black"
                   }`}
                 >

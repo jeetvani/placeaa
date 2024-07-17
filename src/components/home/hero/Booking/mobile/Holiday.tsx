@@ -2,15 +2,14 @@ import { MdOutlineAddCircleOutline } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const HolidayMobile = () => {
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
-    null,
-    null,
-  ]);
-  const [startDate, endDate] = dateRange;
+  const [departureDate, setDepartureDate] = useState<Date | null>(
+    new Date("2024-03-01")
+  );
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const calendarRef = useRef<HTMLDivElement>(null);
 
   const formatDate = (date: Date | null): string => {
     if (!date) return "";
@@ -78,40 +77,55 @@ const HolidayMobile = () => {
         </div>
       </div>
       <div className="w-full h-[1px] bg-[#BFBFBF] opacity-30"></div>
-
-      <div className="flex flex-col gap-3">
-        <h1 className="text-[#BFBFBF] ">Travel Dates</h1>
-        <div className="flex justify-between items-start">
-          <div className="flex gap-3">
-            <div className="flex flex-col">
-              <p className="text-white">{formatDate(startDate)}</p>
-              <p className="text-[#BFBFBF] text-sm">{getDayName(startDate)}</p>
+      <div className="flex justify-between">
+        <div className="flex flex-col gap-3 relative w-[55%]" ref={calendarRef}>
+          <h1 className="text-[#BFBFBF] ">Departure Dates</h1>
+          <div className="flex justify-between items-start">
+            <div className="flex gap-3">
+              <div className="flex flex-col items-start">
+                <span className="font-semibold text-white text-xl">
+                  {formatDate(departureDate).split(",")[0]}
+                </span>
+                <span className="text-white text-sm">
+                  {getDayName(departureDate)}
+                </span>
+              </div>
             </div>
-            <p className="text-white">-</p>
-            <div className="flex flex-col">
-              <p className="text-white">{formatDate(endDate)}</p>
-              <p className="text-[#BFBFBF] text-sm">{getDayName(endDate)}</p>
-            </div>
-            <div></div>
+            <SlCalender
+              fill="#BFBFBF"
+              onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+            />
           </div>
-          <SlCalender
-            fill="#BFBFBF"
-            onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-          />
+          {isCalendarOpen && (
+            <div className="absolute top-full left-0 mt-2 z-10">
+              <DatePicker
+                selected={departureDate}
+                onChange={(date: Date | null) => {
+                  setDepartureDate(date);
+                  setIsCalendarOpen(false);
+                }}
+                inline
+              />
+            </div>
+          )}
         </div>
-        {isCalendarOpen && (
-          <DatePicker
-            selectsRange={true}
-            startDate={startDate || undefined}
-            endDate={endDate || undefined}
-            onChange={(update: [Date | null, Date | null]) => {
-              setDateRange(update);
-              if (update[1]) setIsCalendarOpen(false);
-            }}
-            inline
-          />
-        )}
+        <div className="w-[1px] h-24 bg-[#BFBFBF] opacity-30 mx-5"></div>
+
+        <div className="flex flex-col gap-1 w-[45%]">
+          <h1 className="text-[#BFBFBF]">Rooms & Guests</h1>
+          <div className="w-full">
+            <select
+              id="rooms"
+              className="bg-transparent text-white justify-between outline-none"
+            >
+              <option value="ahmedabad" selected>
+                1 Room, 2 Adults
+              </option>
+            </select>
+          </div>
+        </div>
       </div>
+
       <div className="w-full h-[1px] bg-[#BFBFBF] opacity-30"></div>
 
       <div className="flex flex-col gap-3">
