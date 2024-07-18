@@ -9,7 +9,7 @@ import HolidayPackageCard from "../components/HolidayPackageCard";
 
 const SellerHero = () => {
   return (
-    <div className="w-full py-10 px-5 md:px-20">
+    <div className="w-full py-10 px-5 md:px-20 md:mt-20 mt-0">
       <div className="flex flex-col md:flex-row justify-between items-center w-full">
         <div className="flex gap-5 pb-10">
           <div className="flex items-end w-[30%] md:w-auto">

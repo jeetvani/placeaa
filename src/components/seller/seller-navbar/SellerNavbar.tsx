@@ -24,8 +24,6 @@ const SellerNavbar = ({
 
   const [activeTab, setActiveTab] = useState<null | string>(null);
 
-  const [showNavbar, setShowNavbar] = useState<boolean>(false);
-
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const [userData, setUserData] = useState<{
@@ -115,19 +113,6 @@ const SellerNavbar = ({
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShowNavbar(true);
-      } else {
-        setShowNavbar(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     location.pathname === "/" && setActiveTab(null);
   }, [location]);
 
@@ -192,17 +177,7 @@ const SellerNavbar = ({
     <div
       id="navbar"
       ref={navbarRef}
-      className={` ${showNavbar ? "visible" : ""} ${
-        (location.pathname === "/" ||
-          location.pathname === "/travel-guide" ||
-          location.pathname === "/offers" ||
-          location.pathname === "/biz-connect" ||
-          location.pathname === "/help" ||
-          location.pathname.startsWith("/blog") ||
-          location.pathname.startsWith("/faq") ||
-          location.pathname === "/biz-booking") &&
-        "fixed top-0 navbar"
-      } border-b-[2px] border-[#B9B9B9] flex items-center lg:p-[20px] 2xl:p-[23px] justify-between w-screen z-[1000] bg-white`}
+      className="fixed top-0 left-0 right-0 border-b-[2px] border-[#B9B9B9] flex items-center px-10 py-4 justify-between w-screen z-[1000] bg-white"
     >
       <div className="flex items-center justify-between w-full">
         <div className="flex lg:h-[25px] xl:h-[30px] 2xl:h-[40px] items-center">

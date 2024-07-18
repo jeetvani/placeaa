@@ -223,16 +223,8 @@ const Navbar = ({
       id="navbar"
       ref={navbarRef}
       className={` ${showNavbar ? "visible" : ""} ${
-        (location.pathname === "/" ||
-          location.pathname === "/travel-guide" ||
-          location.pathname === "/offers" ||
-          location.pathname === "/biz-connect" ||
-          location.pathname === "/help" ||
-          location.pathname.startsWith("/blog") ||
-          location.pathname.startsWith("/faq") ||
-          location.pathname === "/biz-booking") &&
-        "fixed top-0 navbar"
-      } shadow-2xl flex items-center lg:p-[20px] 2xl:p-[23px] justify-between w-screen z-[1000] bg-white`}
+        location.pathname === "/" ? "fixed top-0 navbar" : "sticky top-0"
+      } shadow-2xl flex items-center px-10 py-5 justify-between w-screen z-[1000] bg-white`}
     >
       <div className="flex items-center lg:gap-8 2xl:gap-12">
         <div className="lg:h-[25px] xl:h-[30px] 2xl:h-[40px]">
