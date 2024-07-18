@@ -55,7 +55,7 @@ const SellerPackages = () => {
 
   return (
     <div
-      className="w-full md:bg-[image:var(--bg-image)] bg-none bg-cover bg-center"
+      className="w-full md:bg-[image:var(--bg-image)] bg-none bg-cover bg-center mb-10 md:mb-0"
       style={{
         ["--bg-image" as string]: `url(${flowers_background})`,
       }}

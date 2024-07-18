@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import SellerHero from "../components/seller/seller-hero/SellerHero";
 import SellerPackages from "../components/seller/seller-packages/SellerPackages";
 import SellerMobileNavbar from "../components/seller/seller-navbar/SellerMobileNavbar";
+import About from "../components/home/about/About";
 
 const Seller = () => {
   const [loginPopup, setLoginPopup] = useState(false);
@@ -19,6 +20,7 @@ const Seller = () => {
       )}
       <SellerHero />
       <SellerPackages />
+      {!isAboveMediumScreen && <About />}
       <Footer />
     </>
   );
