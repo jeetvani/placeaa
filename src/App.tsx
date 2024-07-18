@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import HolidayPackage from "./pages/HolidayPackage";
 import Navbar from "./components/navbar/Navbar";
@@ -19,6 +24,27 @@ import SingleBookingTicket from "./pages/SingleBookingTicket";
 import SingleFAQ from "./pages/SingleFAQ";
 import { useMediaQuery } from "react-responsive";
 import ScrollToTop from "./components/common/ScrollToTop";
+import Seller from "./pages/Seller";
+
+interface NavbarWrapperProps {
+  isLoggedIn: boolean;
+  setLoginPopup: React.Dispatch<React.SetStateAction<boolean>>;
+  isAboveMediumScreen: boolean;
+}
+
+const NavbarWrapper: React.FC<NavbarWrapperProps> = ({
+  isLoggedIn,
+  setLoginPopup,
+  isAboveMediumScreen,
+}) => {
+  const location = useLocation();
+  const isSellerPage = location.pathname.startsWith("/seller/");
+
+  if (isAboveMediumScreen && !isSellerPage) {
+    return <Navbar isLoggedIn={isLoggedIn} setLoginPopup={setLoginPopup} />;
+  }
+  return null;
+};
 
 const App = () => {
   const [loginPopup, setLoginPopup] = useState(false);
@@ -35,9 +61,11 @@ const App = () => {
             setIsLoggedIn={setIsLoggedIn}
           />
         )}
-        {isAboveMediumScreen && (
-          <Navbar isLoggedIn={isLoggedIn} setLoginPopup={setLoginPopup} />
-        )}{" "}
+        <NavbarWrapper
+          isLoggedIn={isLoggedIn}
+          setLoginPopup={setLoginPopup}
+          isAboveMediumScreen={isAboveMediumScreen}
+        />
         <Routes>
           <Route
             path="/"
@@ -59,6 +87,7 @@ const App = () => {
           <Route path="/biz-connect" element={<BizConnect />} />
           <Route path="/biz-booking" element={<BizBooking />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/seller/:sellerId" element={<Seller />} />
         </Routes>
       </Router>
     </div>
