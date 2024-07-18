@@ -9,7 +9,7 @@ import HolidayPackageCard from "../components/HolidayPackageCard";
 
 const SellerHero = () => {
   return (
-    <div className="w-full py-10 px-5 md:px-20 md:mt-20 mt-0">
+    <div className="w-full pt-10 pb-10 md:pb-0 px-5 md:px-20 md:mt-20 mt-0">
       <div className="flex flex-col md:flex-row justify-between items-center w-full">
         <div className="flex gap-5 pb-10">
           <div className="flex items-end w-[30%] md:w-auto">
@@ -36,7 +36,7 @@ const SellerHero = () => {
                 <h1 className="md:text-4xl text-xl uppercase font-semibold">
                   ADVENTURE TRAVELS
                 </h1>
-                <div className="md:w-[45%] flex gap-3 md:justify-between text-[#B9B9B9] md:text-lg text-[10px]">
+                <div className="md:w-[50%] flex gap-3 md:justify-between text-[#B9B9B9] md:text-lg text-[10px]">
                   <p>06 Listed Tour Packages</p>
                   <p>|</p>
                   <p>Since 2024</p>
@@ -51,7 +51,7 @@ const SellerHero = () => {
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-3 md:gap-8 mt-4">
+            <div className="md:w-[70%] grid grid-cols-2 gap-3 md:gap-8 mt-4">
               <div>
                 <h2 className="text-3xl font-bold">10+</h2>
                 <p className="text-gray-500 md:text-lg text-xs">
@@ -86,13 +86,13 @@ const SellerHero = () => {
               ["--bg-image" as string]: `url(${flower_background})`,
             }}
           >
-            <div className="md:translate-x-36 md:-translate-y-6">
+            <div className="md:translate-x-44 md:-translate-y-6">
               <HolidayPackageCard />
             </div>
           </div>
         </div>
       </div>
-      <div className="hidden w-full md:flex justify-center items-center">
+      <div className="hidden -translate-y-8 w-full h-10 md:flex justify-center items-center">
         <img src={explore_arrow} alt="explore" />
         <img src={explore_text} alt="explore" />
       </div>

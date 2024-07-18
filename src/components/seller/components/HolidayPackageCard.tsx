@@ -3,7 +3,7 @@ import { package_image } from "../../../assets";
 const HolidayPackageCard = () => {
   return (
     <div
-      className="relative flex flex-col items-end justify-end rounded-3xl w-[300px] h-[320px] md:w-[370px] md:h-[400px]"
+      className="relative flex flex-col items-end justify-end rounded-3xl w-[300px] h-[320px] md:w-[310px] md:h-[340px]"
       style={{
         backgroundImage: `url(${package_image})`,
         backgroundSize: "cover",
@@ -25,12 +25,12 @@ const HolidayPackageCard = () => {
             border: "1px solid rgba(217, 217, 217, 0.60)",
           }}
         >
-          <button className="rounded-[10px] font-inter lg:px-[15px] xl:px-[28px] lg:py-[7px] bg-[#ab0101] text-white lg:text-[13px] xl:text-[14px] 2xl:text-[16px] 2xl:pt-[6px] 2xl:pb-[8px] font-[600] text-[12px] px-6 py-2">
+          <button className="rounded-[10px] font-inter md:px-6 md:py-2 bg-[#ab0101] text-white md:text-[12px] font-[600] text-[12px] px-6 py-2">
             Book Now
           </button>
           <div className="flex font-inter gap-[10px]">
             <div className="relative mt-2">
-              <p className="md:text-[11px] xl:text-[12px] 2xl:text-[13px] font-[600] tracking-[0.7px] text-[10px]">
+              <p className="md:text-[12px] font-[600] tracking-[0.7px] text-[10px]">
                 ₹12180
               </p>
               <div className="absolute top-[1px] rotate-[2deg]">
@@ -51,10 +51,10 @@ const HolidayPackageCard = () => {
               </div>
             </div>
             <div>
-              <p className="md:text-[14px] xl:text-[18px] 2xl:text-[19px] font-[600] tracking-[1px] text-[#ab0101] text-[12px]">
+              <p className="md:text-[14px] font-[600] tracking-[1px] text-[#ab0101] text-[12px]">
                 ₹10580
               </p>
-              <p className="md:text-[10px] xl:text-[11px] 2xl:text-[12px] font-[600] text-[#5E5E5E] lg:-mt-1 text-[10px]">
+              <p className="md:text-[10px] font-[600] text-[#5E5E5E] lg:-mt-1 text-[10px]">
                 Per Person + taxes
               </p>
             </div>
