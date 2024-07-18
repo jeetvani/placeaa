@@ -3,19 +3,20 @@ import { package_image } from "../../../assets";
 const HolidayPackageCard = () => {
   return (
     <div
-      className="relative flex flex-col items-end justify-end rounded-3xl w-full"
+      className="relative flex flex-col items-end justify-end rounded-3xl w-[300px] h-[320px] md:w-[370px] md:h-[400px]"
       style={{
         backgroundImage: `url(${package_image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        width: "370px",
-        height: "400px",
       }}
     >
+      <div className="md:hidden absolute top-2 left-2 bg-black px-3 py-1 rounded-lg">
+        <p className="text-sm text-white">6N/7D</p>
+      </div>
       <div className="absolute bottom-0 w-full h-full bg-gradient-to-t from-black rounded-b-3xl" />
-      <div className="z-10 flex justify-between w-full text-white font-medium px-3">
+      <div className="z-10 flex md:justify-between justify-center w-full text-white font-medium px-3">
         <h1 className="text-lg">Goa Incredibal Destination</h1>
-        <p className="text-lg">6N/7D</p>
+        <p className="hidden md:block text-lg">6N/7D</p>
       </div>
       <div className="z-10 w-full flex justify-center items-center pb-3 px-3">
         <div
@@ -29,7 +30,7 @@ const HolidayPackageCard = () => {
           </button>
           <div className="flex font-inter gap-[10px]">
             <div className="relative mt-2">
-              <p className="lg:text-[11px] xl:text-[12px] 2xl:text-[13px] font-[600] tracking-[0.7px] text-[12px]">
+              <p className="md:text-[11px] xl:text-[12px] 2xl:text-[13px] font-[600] tracking-[0.7px] text-[10px]">
                 ₹12180
               </p>
               <div className="absolute top-[1px] rotate-[2deg]">
@@ -50,10 +51,10 @@ const HolidayPackageCard = () => {
               </div>
             </div>
             <div>
-              <p className="lg:text-[14px] xl:text-[18px] 2xl:text-[19px] font-[600] tracking-[1px] text-[#ab0101] text-[15px]">
+              <p className="md:text-[14px] xl:text-[18px] 2xl:text-[19px] font-[600] tracking-[1px] text-[#ab0101] text-[12px]">
                 ₹10580
               </p>
-              <p className="lg:text-[10px] xl:text-[11px] 2xl:text-[12px] font-[600] text-[#5E5E5E] lg:-mt-1 text-[12px]">
+              <p className="md:text-[10px] xl:text-[11px] 2xl:text-[12px] font-[600] text-[#5E5E5E] lg:-mt-1 text-[10px]">
                 Per Person + taxes
               </p>
             </div>

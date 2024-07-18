@@ -107,6 +107,7 @@ import package_image from "./package.jpg";
 import explore_text from "./explore.svg";
 import explore_arrow from "./explore_arrow.svg";
 import flowers_background from "./flowers_background.png";
+import p_white_logo from "./p_white_logo.png";
 
 // mobile
 import hamburger from "./mobile/home/hamburger.svg";
@@ -231,4 +232,5 @@ export {
   explore_text,
   explore_arrow,
   flowers_background,
+  p_white_logo,
 };

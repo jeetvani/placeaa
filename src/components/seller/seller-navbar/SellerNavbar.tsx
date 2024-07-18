@@ -131,17 +131,6 @@ const SellerNavbar = ({
     location.pathname === "/" && setActiveTab(null);
   }, [location]);
 
-  // useEffect(() => {
-  //   if (navbarRef.current) {
-  //     const navbarHeight = navbarRef.current.clientHeight;
-
-  //     navbarRef.current.style.marginTop =
-  //       !showNavbar && location.pathname === "/" ? `-${navbarHeight}px` : "0px";
-  //     navbarRef.current.style.display =
-  //       !showNavbar && location.pathname === "/" ? `none` : "flex";
-  //   }
-  // }, [showNavbar, location]);
-
   useEffect(() => {
     const handleScroll = throttle(() => {
       setShowMore(false);

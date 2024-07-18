@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import SellerHero from "../components/seller/seller-hero/SellerHero";
 import SellerPackages from "../components/seller/seller-packages/SellerPackages";
+import SellerMobileNavbar from "../components/seller/seller-navbar/SellerMobileNavbar";
 
 const Seller = () => {
   const [loginPopup, setLoginPopup] = useState(false);
@@ -11,8 +12,10 @@ const Seller = () => {
   const isAboveMediumScreen = useMediaQuery({ minWidth: 768 });
   return (
     <>
-      {isAboveMediumScreen && (
+      {isAboveMediumScreen ? (
         <SellerNavbar setLoginPopup={setLoginPopup} isLoggedIn={isLoggedIn} />
+      ) : (
+        <SellerMobileNavbar />
       )}
       <SellerHero />
       <SellerPackages />

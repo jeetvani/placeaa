@@ -55,18 +55,19 @@ const SellerPackages = () => {
 
   return (
     <div
-      className="w-full"
+      className="w-full md:bg-[image:var(--bg-image)] bg-none bg-cover bg-center"
       style={{
-        backgroundImage: `url(${flowers_background})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        ["--bg-image" as string]: `url(${flowers_background})`,
       }}
     >
-      <div className="w-full flex flex-col gap-10 justify-center items-center py-24">
-        <h1 className="text-4xl text-red-600 font-semibold">
+      <div className="w-full flex flex-col gap-5 md:gap-10 justify-center items-center px-10 md:px-0 md:py-24">
+        <div className="md:hidden text-white bg-red-700 flex justify-center py-2 w-full rounded-full">
+          <p>Holiday Packages</p>
+        </div>
+        <h1 className="hidden md:block text-4xl text-red-600 font-semibold">
           Holiday Packages
         </h1>
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <HolidayPackageCard />
           <HolidayPackageCard />
           <HolidayPackageCard />
