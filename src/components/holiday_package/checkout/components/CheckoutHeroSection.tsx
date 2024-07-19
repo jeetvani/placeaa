@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { homelogo, hamburger, testusermob, plus } from "../../../../assets";
+import { plus } from "../../../../assets";
+import MobileNavbar from "../../../mobile-navbar/MobileNavbar";
 
 const CheckoutHeroSection = ({
   data,
@@ -25,46 +25,11 @@ const CheckoutHeroSection = ({
     { title: "Package Details" },
     { title: "Cancellation & Date Change" },
   ];
-  const [userData, setUserData] = useState<{
-    firstName: string;
-    lastName: string;
-    id: string;
-    email: string;
-    profile: string;
-  }>({
-    firstName: "Shubh",
-    lastName: "Mangukiya",
-    id: "asdfasfa",
-    email: "shubh_placeaa@gmail.com",
-    profile: testusermob,
-  });
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <div className="h-[120vh] bg-home-page-image bg-cover bg-center px-5">
-      <nav className="flex items-center justify-between pt-4 ">
-        <div className="flex items-center gap-4 lg:gap-0">
-          <img
-            src={hamburger}
-            alt="menu"
-            className="w-6 h-6 lg:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          />
-          <img
-            src={homelogo}
-            alt="logo"
-            className="h-8 lg:h-[35px] xl:h-[38px] 2xl:h-[45px]"
-          />
-        </div>
-        <div className="lg:hidden">
-          <img
-            src={userData.profile}
-            alt="profile"
-            className="w-8 h-8 rounded-full"
-          />
-        </div>
-      </nav>
-      <div className="flex flex-col gap-3 mt-20 px-5 items-center justify-center">
+      <MobileNavbar transparentBg={true} />
+      <div className="flex flex-col gap-3 mt-10 px-5 items-center justify-center">
         <h1 className="text-lg text-white font-semibold">
           {data?.name}
           <p>

@@ -14,6 +14,7 @@ import {
 import Footer from "../components/home/footer/Footer";
 import About from "../components/home/about/About";
 import { useMediaQuery } from "react-responsive";
+import MobileNavbar from "../components/mobile-navbar/MobileNavbar";
 
 const BizConnect = () => {
   const isAboveMediumScreen = useMediaQuery({ minWidth: 768 });
@@ -104,28 +105,8 @@ const BizConnect = () => {
         </div>
       ) : (
         <div className="h-[65vh] bg-home-page-image bg-cover bg-center px-5">
-          <nav className="flex items-center justify-between pt-4 ">
-            <div className="flex items-center gap-4 lg:gap-0">
-              <img
-                src={hamburger}
-                alt="menu"
-                className="w-6 h-6 lg:hidden"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              />
-              <img
-                src={homelogo}
-                alt="logo"
-                className="h-8 lg:h-[35px] xl:h-[38px] 2xl:h-[45px]"
-              />
-            </div>
-            <div className="lg:hidden">
-              <img
-                src={userData.profile}
-                alt="profile"
-                className="w-8 h-8 rounded-full"
-              />
-            </div>
-          </nav>
+          <MobileNavbar transparentBg={true} />
+
           <div className="flex flex-col gap-5 md:flex-row justify-between items-center mt-10">
             <div className="flex flex-col items-center">
               <p className="font-[700] text-[25px] xl:text-[28px] leading-[40.22px] text-center text-white">

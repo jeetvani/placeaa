@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { homelogo, hamburger, testusermob } from "../../../assets";
+import MobileNavbar from "../../mobile-navbar/MobileNavbar";
 
 const SelectionBoxMobile = () => {
   const [travelData, setTravelData] = useState<{
@@ -44,29 +45,8 @@ const SelectionBoxMobile = () => {
 
   return (
     <div className="h-[110vh] bg-home-page-image bg-cover bg-center px-5">
-      <nav className="flex items-center justify-between pt-4 ">
-        <div className="flex items-center gap-4 lg:gap-0">
-          <img
-            src={hamburger}
-            alt="menu"
-            className="w-6 h-6 lg:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          />
-          <img
-            src={homelogo}
-            alt="logo"
-            className="h-8 lg:h-[35px] xl:h-[38px] 2xl:h-[45px]"
-          />
-        </div>
-        <div className="lg:hidden">
-          <img
-            src={userData.profile}
-            alt="profile"
-            className="w-8 h-8 rounded-full"
-          />
-        </div>
-      </nav>
-      <div className="bg-[rgba(0,0,0,0.12)] rounded-lg p-4 backdrop-filter backdrop-blur-sm border-[0.3px] border-gray-600 mt-20">
+      <MobileNavbar transparentBg={true} />
+      <div className="bg-[rgba(0,0,0,0.12)] rounded-lg p-4 backdrop-filter backdrop-blur-sm border-[0.3px] border-gray-600 mt-10">
         <div className="flex flex-col gap-5 py-3 px-5 w-full">
           <div className="flex flex-col gap-3 items-center justify-center">
             <div className="w-full flex flex-col items-center justify-center">

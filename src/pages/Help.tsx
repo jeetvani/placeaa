@@ -13,6 +13,7 @@ import {
 } from "../assets";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import MobileNavbar from "../components/mobile-navbar/MobileNavbar";
 
 const Help = () => {
   const navigate = useNavigate();
@@ -157,30 +158,10 @@ const Help = () => {
           </div>
         </div>
       ) : (
-        <div className="h-[50vh] bg-home-page-image bg-cover bg-center px-5">
-          <nav className="flex items-center justify-between pt-4 ">
-            <div className="flex items-center gap-4 lg:gap-0">
-              <img
-                src={hamburger}
-                alt="menu"
-                className="w-6 h-6 lg:hidden"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              />
-              <img
-                src={homelogo}
-                alt="logo"
-                className="h-8 lg:h-[35px] xl:h-[38px] 2xl:h-[45px]"
-              />
-            </div>
-            <div className="lg:hidden">
-              <img
-                src={userData.profile}
-                alt="profile"
-                className="w-8 h-8 rounded-full"
-              />
-            </div>
-          </nav>
-          <div className="flex w-full justify-center items-center flex-col mt-20">
+        <div className="h-[40vh] bg-home-page-image bg-cover bg-center px-5">
+          <MobileNavbar transparentBg={true} />
+
+          <div className="flex w-full justify-center items-center flex-col mt-10">
             <p className="text-[20px] text-white xl:text-[30px] text-center font-[600] tracking-[1.6px] leading-none">
               Get Support
             </p>
