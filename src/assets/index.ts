@@ -110,6 +110,8 @@ import flowers_background from "./flowers_background.png";
 import p_white_logo from "./p_white_logo.png";
 import holiday_white from "./holiday_white.svg";
 import ai_white from "./ai_white.svg";
+import login_background from "./login_background.svg";
+import google_signup from "./google_signup.jpg";
 
 // mobile
 import hamburger from "./mobile/home/hamburger.svg";
@@ -237,4 +239,6 @@ export {
   p_white_logo,
   holiday_white,
   ai_white,
+  login_background,
+  google_signup,
 };
