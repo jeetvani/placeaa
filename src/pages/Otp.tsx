@@ -1,16 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
-import { google_signup, login_background } from "../assets";
+import { useState } from "react";
+import { login_background } from "../assets";
 import { useNavigate } from "react-router-dom";
 
-const Login: React.FC = () => {
-  const [emailOrMobile, setEmailOrMobile] = useState("");
+const Otp = () => {
+  const [otp, setOtp] = useState("");
+
   const navigate = useNavigate();
 
   const handleClose = () => {
     navigate(-1);
   };
-
   return (
     <div className="relative h-screen bg-gray-100">
       <div
@@ -36,32 +35,20 @@ const Login: React.FC = () => {
 
           <form>
             <label className="block text-sm font-semibold text-gray-700 mb-2">
-              Email or Mobile Number
+              OTP has been sent
             </label>
             <input
-              type="text"
-              className="w-full px-3 py-2 border-black rounded-md mb-4 outline-none border-[1px] placeholder:text-sm"
-              placeholder="Enter Email or Mobile Number"
-              value={emailOrMobile}
-              onChange={(e) => setEmailOrMobile(e.target.value)}
+              type="number"
+              className="w-full px-3 py-2 border-black rounded-md mb-2 outline-none border-[1px] placeholder:text-sm"
+              placeholder="Enter OTP"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
             />
+            <p className="text-[#082485] font-semibold mb-2">Resend OTP</p>
             <button className="w-full bg-[#AB0101] text-white py-2 rounded-full transition duration-300">
-              Continue
+              Verify
             </button>
           </form>
-          <div className="flex w-full items-center gap-2 mt-4">
-            <div className="w-[50%] h-[1px] bg-black" />
-            <div className="w-full text-center text-sm text-white">
-              or login/signup using
-            </div>
-            <div className="w-[50%] h-[1px] bg-black" />
-          </div>
-
-          <div className="mt-4 flex justify-center">
-            <button className="bg-white p-2 rounded-full shadow-md">
-              <img src={google_signup} alt="Google" className="w-6 h-6" />
-            </button>
-          </div>
 
           <div className="mt-6 space-y-2">
             {[1, 2].map((_, index) => (
@@ -102,4 +89,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Otp;

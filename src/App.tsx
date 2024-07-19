@@ -26,6 +26,7 @@ import { useMediaQuery } from "react-responsive";
 import ScrollToTop from "./components/common/ScrollToTop";
 import Seller from "./pages/Seller";
 import Login from "./pages/Login";
+import Otp from "./pages/Otp";
 
 interface NavbarWrapperProps {
   isLoggedIn: boolean;
@@ -42,7 +43,7 @@ const NavbarWrapper: React.FC<NavbarWrapperProps> = ({
   const isSellerPage = location.pathname.startsWith("/seller/");
   const isLoginPage = location.pathname === "/login";
 
-  if ((isAboveMediumScreen && !isSellerPage) || !isLoginPage) {
+  if (isAboveMediumScreen && !isSellerPage && !isLoginPage) {
     return <Navbar isLoggedIn={isLoggedIn} setLoginPopup={setLoginPopup} />;
   }
   return null;
@@ -91,6 +92,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/seller/:sellerId" element={<Seller />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/verify-otp" element={<Otp />} />
         </Routes>
       </Router>
     </div>
