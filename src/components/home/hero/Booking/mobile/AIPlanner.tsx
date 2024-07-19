@@ -2,15 +2,19 @@ import { MdOutlineAddCircleOutline } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const AIPlanner = () => {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
-    null,
+    new Date(),
     null,
   ]);
   const [startDate, endDate] = dateRange;
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
+  useEffect(() => {
+    setDateRange([new Date(), null]);
+  }, []);
 
   const formatDate = (date: Date | null): string => {
     if (!date) return "";

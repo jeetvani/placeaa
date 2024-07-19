@@ -27,6 +27,8 @@ import {
   travelGuide,
   offersRed,
   offers,
+  ai_white,
+  holiday_white,
 } from "../../../assets";
 import { useNavigate } from "react-router-dom";
 
@@ -114,15 +116,15 @@ const Hero = ({
 
   const bookingContents = [
     {
-      logoOn: aiplannerred,
-      logoOff: aiplanner,
+      logoOn: ai_white,
+      logoOff: aiplannerred,
       title: "PLAN TRIP USING AI",
       component: <AIPlanner />,
       mobile: <AIPlannerMobile />,
     },
     {
-      logoOn: holidaypackagered,
-      logoOff: holidaypackage,
+      logoOn: holiday_white,
+      logoOff: holidaypackagered,
       title: "HOLIDAY PACKAGE",
       component: <Holiday />,
       mobile: <HolidayMobile />,
@@ -332,7 +334,13 @@ const Hero = ({
   };
 
   return (
-    <div className="md:h-screen h-fit bg-home-page-image bg-cover bg-center px-4 sm:px-6 lg:px-[30px] xl:px-[40px] 2xl:px-[50px]">
+    <div
+      className="md:min-h-screen bg-no-repeat h-fit bg-home-page-image bg-cover bg-center px-4 sm:px-6 lg:px-[30px] xl:px-[40px] 2xl:px-[50px]"
+      style={{
+        minHeight: "100vh",
+        backgroundAttachment: "fixed",
+      }}
+    >
       {/* Navbar */}
       <nav className="flex items-center justify-between pt-4 lg:pt-[20px] xl:pt-[25px] 2xl:pt-[30px]">
         <div className="flex items-center gap-4 lg:gap-0">
@@ -424,8 +432,8 @@ const Hero = ({
               <div
                 key={bc.title}
                 onClick={() => setActiveBooking(bc.title)}
-                className={`w-full flex cursor-pointer items-center gap-1 px-2 py-4 justify-center bg-white rounded-xl ${
-                  activeBooking === bc.title ? "bg-red-100" : ""
+                className={`w-full flex cursor-pointer items-center gap-1 px-2 py-4 justify-center  rounded-xl ${
+                  activeBooking === bc.title ? "bg-[#AB0101]" : "bg-white"
                 }`}
               >
                 <img
@@ -435,7 +443,7 @@ const Hero = ({
                 />
                 <p
                   className={`font-[500] text-xs ${
-                    activeBooking === bc.title ? "text-[#AB0101]" : "text-black"
+                    activeBooking === bc.title ? "text-white" : "text-[#AB0101]"
                   }`}
                 >
                   {bc.title}

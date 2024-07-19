@@ -108,6 +108,8 @@ import explore_text from "./explore.svg";
 import explore_arrow from "./explore_arrow.svg";
 import flowers_background from "./flowers_background.png";
 import p_white_logo from "./p_white_logo.png";
+import holiday_white from "./holiday_white.svg";
+import ai_white from "./ai_white.svg";
 
 // mobile
 import hamburger from "./mobile/home/hamburger.svg";
@@ -233,4 +235,6 @@ export {
   explore_arrow,
   flowers_background,
   p_white_logo,
+  holiday_white,
+  ai_white,
 };

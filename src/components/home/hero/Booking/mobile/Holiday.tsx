@@ -5,9 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useRef, useState } from "react";
 
 const HolidayMobile = () => {
-  const [departureDate, setDepartureDate] = useState<Date | null>(
-    new Date("2024-03-01")
-  );
+  const [departureDate, setDepartureDate] = useState<Date | null>(new Date());
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const calendarRef = useRef<HTMLDivElement>(null);
 
