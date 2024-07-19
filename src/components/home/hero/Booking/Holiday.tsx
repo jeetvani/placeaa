@@ -4,9 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { SlCalender } from "react-icons/sl";
 
 const Holiday: React.FC = () => {
-  const [departureDate, setDepartureDate] = useState<Date | null>(
-    new Date("2024-03-01")
-  );
+  const [departureDate, setDepartureDate] = useState<Date | null>(new Date());
   const [isCalendarOpen, setIsCalendarOpen] = useState<boolean>(false);
   const calendarRef = useRef<HTMLDivElement>(null);
 

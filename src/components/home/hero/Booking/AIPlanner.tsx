@@ -3,12 +3,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
-import { IoIosArrowDown } from "react-icons/io";
 
 const AIPlanner: React.FC = () => {
   const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
-    new Date("2024-03-01"),
-    new Date("2024-03-07"),
+    new Date(),
+    null,
   ]);
   const [startDate, endDate] = dateRange;
   const [isCalendarOpen, setIsCalendarOpen] = useState<boolean>(false);
