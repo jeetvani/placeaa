@@ -171,7 +171,7 @@ const MobileNavbar = ({ transparentBg = false }) => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-4">
                 {navs.map((nav) => (
                   <div
                     key={nav.title}
