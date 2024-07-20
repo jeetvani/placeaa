@@ -103,7 +103,7 @@ const MobileNavbar = ({ transparentBg = false }) => {
     ];
 
     return (
-      <div className="fixed top-0 left-0 w-screen h-full bg-white z-50 overflow-y-auto p-6">
+      <div className="fixed top-0 left-0 w-screen h-full bg-white z-[999999] overflow-y-auto p-6">
         <button
           onClick={() => setIsMobileMenuOpen(false)}
           className="absolute top-1 right-2 text-black text-2xl"
