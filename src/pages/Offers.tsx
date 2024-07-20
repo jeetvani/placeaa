@@ -127,7 +127,7 @@ const Offers = () => {
     <>
       {!isAboveMediumScreen && <MobileNavbar />}
 
-      <div className="md:mx-[30px] xl:mx-[40px] mb-[50px] xl:mb-[70px] mt-10 md:mt-0">
+      <div className="md:mx-[30px] xl:mx-[40px] mb-[50px] xl:mb-[70px] mt-10 md:mt-0 overflow-hidden">
         <Slider {...sliderSettings}>
           {bannerImages.map((image, index) => (
             <div key={index}>

@@ -31,6 +31,7 @@ import {
   holiday_white,
 } from "../../../assets";
 import { useNavigate } from "react-router-dom";
+import MobileNavbar from "../../mobile-navbar/MobileNavbar";
 
 interface NavItem {
   activeIcon: string;
@@ -342,25 +343,15 @@ const Hero = ({
       }}
     >
       {/* Navbar */}
-      <nav className="flex items-center justify-between pt-4 lg:pt-[20px] xl:pt-[25px] 2xl:pt-[30px]">
-        <div className="flex items-center gap-4 lg:gap-0">
-          <img
-            src={hamburger}
-            alt="menu"
-            className="w-6 h-6 lg:hidden"
-            onClick={() => setIsMobileMenuOpen(true)}
-          />
+      <nav className="flex items-center justify-between md:pt-4 lg:pt-[20px] xl:pt-[25px] 2xl:pt-[30px]">
+        <div className="md:hidden w-full">
+          <MobileNavbar transparentBg={true} />
+        </div>
+        <div className="hidden md:flex items-center gap-4 lg:gap-0">
           <img
             src={homelogo}
             alt="logo"
             className="h-8 lg:h-[35px] xl:h-[38px] 2xl:h-[45px]"
-          />
-        </div>
-        <div className="lg:hidden">
-          <img
-            src={userData.profile}
-            alt="profile"
-            className="w-8 h-8 rounded-full"
           />
         </div>
 

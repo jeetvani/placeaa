@@ -112,6 +112,8 @@ import holiday_white from "./holiday_white.svg";
 import ai_white from "./ai_white.svg";
 import login_background from "./login_background.svg";
 import google_signup from "./google_signup.jpg";
+import travel_guide_white from "./travel_guide_white.svg";
+import offer_white from "./offer_white.svg";
 
 // mobile
 import hamburger from "./mobile/home/hamburger.svg";
@@ -241,4 +243,6 @@ export {
   ai_white,
   login_background,
   google_signup,
+  travel_guide_white,
+  offer_white,
 };

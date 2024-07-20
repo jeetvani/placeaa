@@ -8,7 +8,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   const handleClose = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   return (
@@ -20,7 +20,7 @@ const Login: React.FC = () => {
         }}
       ></div>
 
-      <div className="relative h-full flex flex-col items-center justify-center p-6 pt-20">
+      <div className="relative h-full flex flex-col items-center justify-center p-6">
         <button
           className="absolute top-4 right-4 text-black text-3xl"
           onClick={handleClose}
