@@ -12,7 +12,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="relative h-screen bg-gray-100">
+    <div className="relative h-[90vh] bg-gray-100">
       <div
         className="absolute inset-0 bg-cover bg-center bg-[image:var(--bg-image)] "
         style={{
@@ -20,9 +20,9 @@ const Login: React.FC = () => {
         }}
       ></div>
 
-      <div className="relative h-full flex flex-col items-center justify-center p-6">
+      <div className="relative h-full flex flex-col items-center justify-center px-6">
         <button
-          className="absolute top-4 right-4 text-black text-3xl"
+          className="absolute top-4 right-4 text-black text-4xl"
           onClick={handleClose}
         >
           &times;
