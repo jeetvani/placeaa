@@ -36,7 +36,7 @@ const SellerHero = () => {
                 <h1 className="md:text-4xl text-xl uppercase font-semibold">
                   ADVENTURE TRAVELS
                 </h1>
-                <div className="md:w-[50%] flex gap-3 md:justify-between text-[#B9B9B9] md:text-lg text-[10px]">
+                <div className="md:w-[50%] flex gap-3 md:justify-between text-[#B9B9B9] md:text-[15px] font-medium text-[10px]">
                   <p>06 Listed Tour Packages</p>
                   <p>|</p>
                   <p>Since 2024</p>
