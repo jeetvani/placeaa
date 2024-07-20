@@ -12,9 +12,9 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="relative h-[90vh] bg-gray-100">
+    <div className="relative h-screen bg-gray-100">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-[image:var(--bg-image)] "
+        className="absolute inset-0 h-screen bg-cover bg-center bg-[image:var(--bg-image)] "
         style={{
           ["--bg-image" as string]: `url(${login_background})`,
         }}

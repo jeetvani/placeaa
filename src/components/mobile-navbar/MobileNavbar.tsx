@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   homelogo,
   hamburger,
@@ -27,6 +27,23 @@ const MobileNavbar = ({ transparentBg = false }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const toggleBodyScroll = (disable: boolean) => {
+    if (disable) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  };
+
+  useEffect(() => {
+    toggleBodyScroll(isMobileMenuOpen);
+    return () => toggleBodyScroll(false);
+  }, [isMobileMenuOpen]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const navs = [
     {
@@ -111,7 +128,7 @@ const MobileNavbar = ({ transparentBg = false }) => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 left-0 w-screen h-full bg-white z-[999999] overflow-y-auto p-6"
+            className="fixed top-0 left-0 w-[80vw] h-full bg-white z-[999999] overflow-y-auto px-6 py-4 overflow-hidden"
           >
             <button
               onClick={() => setIsMobileMenuOpen(false)}
@@ -131,7 +148,7 @@ const MobileNavbar = ({ transparentBg = false }) => {
                 <div className="bg-black rounded-full p-2 mr-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 text-white"
+                    className="h-5 w-5 text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -145,18 +162,20 @@ const MobileNavbar = ({ transparentBg = false }) => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="font-semibold">Login or Create Account</h3>
-                  <p className="text-sm text-gray-600">
+                  <h3 className="font-semibold text-sm">
+                    Login or Create Account
+                  </h3>
+                  <p className="text-xs text-gray-600">
                     Manage your profile, traveller details, login details
                   </p>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {navs.map((nav) => (
                   <div
                     key={nav.title}
-                    className={`flex flex-col items-center justify-center p-4 rounded-lg ${
+                    className={`flex flex-col items-center justify-center py-2 rounded-lg ${
                       location.pathname === `/${nav.link}`
                         ? "bg-[#AB0101] text-white"
                         : "bg-black text-white"
@@ -173,9 +192,9 @@ const MobileNavbar = ({ transparentBg = false }) => {
                           : nav.passiveIcon
                       }
                       alt={nav.title}
-                      className="w-6 h-6 mb-2"
+                      className="w-4 h-4 mb-2"
                     />
-                    <span className="text-sm">{nav.title}</span>
+                    <span className="text-xs">{nav.title}</span>
                   </div>
                 ))}
               </div>
@@ -192,18 +211,18 @@ const MobileNavbar = ({ transparentBg = false }) => {
                       setIsMobileMenuOpen(false);
                     }}
                   >
-                    <div className="bg-black rounded-full flex items-center justify-center w-14 h-10">
+                    <div className="bg-black rounded-full flex items-center justify-center w-10 h-8 p-2">
                       <img src={item.icon} alt="hash" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">{item.title}</h3>
-                      <p className="text-sm text-gray-600">{item.desc}</p>
+                      <h3 className="font-semibold text-sm">{item.title}</h3>
+                      <p className="text-xs text-gray-600">{item.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="text-center text-sm text-red-600 mt-4">
+              <div className="text-center text-xs text-red-600 ">
                 <a href="#" className="underline">
                   Privacy Policy
                 </a>{" "}
@@ -259,7 +278,7 @@ const MobileNavbar = ({ transparentBg = false }) => {
                 src={hamburger}
                 alt="menu"
                 className="w-6 h-6 lg:hidden"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                onClick={toggleMobileMenu}
               />
               <img
                 src={homelogo}
